@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>Maik Skoddow</sys_created_by>
+        <sys_created_on>2020-02-28 10:42:59</sys_created_on>
+        <sys_id>e03164b42fdf80102d93b0c62799b665</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_435321_bootcamp_bootcamp.x_435321_bootcamp.bootcamp_user</sys_name>
+        <sys_package display_value="Bootcamp" source="x_435321_bootcamp">77e0ac742fdf80102d93b0c62799b65f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Bootcamp">77e0ac742fdf80102d93b0c62799b65f</sys_scope>
+        <sys_security_acl display_value="x_435321_bootcamp_bootcamp">6c3164b42fdf80102d93b0c62799b65e</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e03164b42fdf80102d93b0c62799b665</sys_update_name>
+        <sys_updated_by>Maik Skoddow</sys_updated_by>
+        <sys_updated_on>2020-02-28 10:42:59</sys_updated_on>
+        <sys_user_role display_value="x_435321_bootcamp.bootcamp_user" name="x_435321_bootcamp.bootcamp_user">dc31ac742fdf80102d93b0c62799b666</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

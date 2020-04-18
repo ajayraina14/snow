@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>sys_created_on</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate BootCamp Fields</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+	g_form.clearMessages();
+
+	var startDate             = g_form.getValue("start_date");
+	var endDate               = g_form.getValue("end_date");
+	var startDateMilliSeconds = startDate ? getDateFromFormat(startDate, g_user_date_time_format) : 0;
+	var endDateMilliSeconds   = endDate ? getDateFromFormat(endDate, g_user_date_time_format) : 0;
+	var nowDateMilliSeconds   = (new Date().getTime()) / 1000 * 1000;
+	
+	if (startDateMilliSeconds > 0 && startDateMilliSeconds < nowDateMilliSeconds) {
+		g_form.showErrorBox("start_date", "Start date has to be after the current date!"); 
+		return false;
+	}
+	
+	if (endDateMilliSeconds > 0 && endDateMilliSeconds < nowDateMilliSeconds) {
+		g_form.showErrorBox("end_date", "End date has to be after the current date!"); 
+		return false;
+	}
+	
+	if (startDateMilliSeconds > 0 && endDateMilliSeconds > 0) {
+		if (startDateMilliSeconds > endDateMilliSeconds) {
+			g_form.showErrorBox("end_date", "End date has to be after the start date!"); 
+			return false;		
+		}
+		
+		if (endDateMilliSeconds - startDateMilliSeconds < (7 * 24 * 60 * 60 * 1000)) {
+			g_form.addErrorMessage("Difference between End date and Start date should not exceed 7 days!"); 
+			return false;					
+		}
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>Maik Skoddow</sys_created_by>
+        <sys_created_on>2020-02-28 10:48:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3eb16cf42fdf80102d93b0c62799b6cb</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Validate BootCamp Fields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Bootcamp" source="x_435321_bootcamp">77e0ac742fdf80102d93b0c62799b65f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Bootcamp">77e0ac742fdf80102d93b0c62799b65f</sys_scope>
+        <sys_update_name>sys_script_client_3eb16cf42fdf80102d93b0c62799b6cb</sys_update_name>
+        <sys_updated_by>Maik Skoddow</sys_updated_by>
+        <sys_updated_on>2020-02-28 11:13:03</sys_updated_on>
+        <table>x_435321_bootcamp_bootcamp</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
